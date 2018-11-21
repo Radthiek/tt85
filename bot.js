@@ -2513,7 +2513,7 @@ if (err) console.error(err);
 });
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "welcome"
+    channel: "word"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
@@ -2562,7 +2562,7 @@ member.guild.fetchInvites().then(guildInvites => {
                               ctx.font = "bold 12px Arial";
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#f1f1f1";
-      ctx.fillText(`Welcome To Server`, 260, 125);
+      ctx.fillText(`WordShop`, 260, 125);
       
                               //AVATARً
                               let Avatar = Canvas.Image;
