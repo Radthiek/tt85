@@ -366,7 +366,7 @@ client.on('message', message => {
             message.channel.send({embed: {
                 color: 3447003,
                 author: {
-                  name: 'Rèéd\'s translator',
+                  name: 'Rèd\'s translator',
                   icon_url: client.user.avatarURL
                 },
                 fields: [{
