@@ -2481,7 +2481,7 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
     }
 });
 
-const invites = {};
+
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
     if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
