@@ -2539,6 +2539,38 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
            newRebel.author.send("ممنوع روآبط الدسكورد. \n إذآ كنت تريد النشر توآصل من الإدآرة.");
     }
 });
+
+const invites = {};
+const wait = require('util').promisify(setTimeout);
+client.on('ready', () => {
+  wait(1000);
+
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});
+
+let sWlc = JSON.parse(fs.readFileSync("./setWlc.json", "UTF8"))   
+client.on('message', message => {
+if(message.channel.type === "dm") return;
+if(message.author.bot) return;
+  if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
+    channel: "welcome"
+}
+const channel = sWlc[message.guild.id].channel
+  if (message.content.startsWith(prefix + "setwelcomer")) {
+    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
+    let newChannel = message.content.split(' ').slice(1).join(" ")
+    if(!newChannel) return message.reply(`**${prefix}setwelcomer <channel name>**`)
+    sWlc[message.guild.id].channel = newChannel
+    message.channel.send(`**${message.guild.name}'s channel has been changed to ${newChannel}**`);
+  }
+   fs.writeFile('./setWlc.json', JSON.stringify(sWlc), (err) => {
+if (err) console.error(err);
+})
+});
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
     channel: "word"
