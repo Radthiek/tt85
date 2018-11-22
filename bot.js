@@ -2481,18 +2481,8 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
     }
 });
 
+
 const invites = {};
-const wait = require('util').promisify(setTimeout);
-client.on('ready', () => {
-  wait(1000);
-
-  client.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
-    });
-  });
-});
-
 let sWlc = JSON.parse(fs.readFileSync("./setWlc.json", "UTF8"))   
 client.on('message', message => {
 if(message.channel.type === "dm") return;
