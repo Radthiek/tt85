@@ -2480,7 +2480,7 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
            newRebel.author.send("ممنوع روآبط الدسكورد. \n إذآ كنت تريد النشر توآصل من الإدآرة.");
     }
 });
-const invites
+
 const wait = require('util').promisify(setTimeout);
 client.on('ready', () => {
   wait(1000);
