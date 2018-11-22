@@ -3370,4 +3370,4 @@ client.on("message", (message) => {
     }
 })
 
-client.login(process.env.token);
+client.login('NTE0NDQ0NzM4MzU1Nzg5ODI1.DtW2mg._znQ-Mpq2I0m-P7MgcsymJ15lRM');
