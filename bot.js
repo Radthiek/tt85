@@ -385,7 +385,7 @@ client.on('message', msg => {
 };
 });
 client.on('message', message => {
-    if (message.content.startsWith("G.trans")) {
+    if (message.content.startsWith("!trans")) {
       
     let toTrans = message.content.split(' ').slice(1);
     let language;
@@ -491,7 +491,7 @@ if (command == "z5rf") {
 });
 
 client.on('message', message => {
-    if (message.content === "G.rooms") {
+    if (message.content === "!rooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
