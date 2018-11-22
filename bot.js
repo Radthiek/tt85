@@ -2625,7 +2625,7 @@ client.on("guildMemberAdd", member => {
                               ctx.font = "bold 12px Arial";
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#f1f1f1";
-      ctx.fillText(`Welcome To Server`, 260, 125);
+      ctx.fillText(`W`, 260, 125);
       
                               //AVATARً
                               let Avatar = Canvas.Image;
