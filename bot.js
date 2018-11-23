@@ -292,6 +292,10 @@ antispam(client, {
   time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
 });
 
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","<Word"));
+    });
+
 client.on('message', function(msg) {
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
