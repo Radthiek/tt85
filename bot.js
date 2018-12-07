@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['FendBot','!help','!play'];
+    var setGame = ['Fend','!help','!play'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -277,25 +277,6 @@ message.channel.send(embed)
 
 
 });
-
-var antispam = require("anti-spam");//npm i anti-spam
- 
-antispam(client, {
-  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
-  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
-  interval: 1000, // مقدار الوقت قبل حصول باند
-  warningMessage: "stop spamming.", // رسالة تحذير اذا سوا سبام!
-  roleMessage: "Muted!!", // الرسالة الي تجي اذا شخص اخذ ميوت
-  roleName: "Muted", // اسم رتبة الميوت
-  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
-  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
-  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
-});
-
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","<Fend"));
-    });
-
 client.on('message', function(msg) {
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
@@ -337,7 +318,7 @@ client.on('message', function(msg) {
 });
  client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='G.count')
+      if(message.content =='!count')
 	 
       message.reply(`**${message.guild.memberCount}**`);
     });
@@ -453,33 +434,6 @@ client.on('message', message => {
         });
 }
 });
-
-client.on('message', message => {
-	if (message.content.startsWith("رابط")) {
-		if (message.author.bot) return
-		message.channel.createInvite({
-		thing: true,
-		maxUses: 5,
-		maxAge: 1,
-	}).then(invite =>
-		message.author.sendMessage(invite.url)
-	)
-	const embed = new Discord.RichEmbed()
-		.setColor("RANDOM")
-			.setDescription(" تم ارسال الرابط في الخاص :link: ")
-			 .setAuthor(client.user.username, client.user.avatarURL)
-				 .setAuthor(client.user.username, client.user.avatarURL)
-				.setFooter('طلب بواسطة: ' + message.author.tag)
- 
-		message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
-				const Embed11 = new Discord.RichEmbed()
-		.setColor("RANDOM")
- 
-	.setDescription(" مدة الرابط :  24 ساعه فقط  عدد استخدامات الرابط : 5 ")
-		message.author.sendEmbed(Embed11)
-	}
-});
-
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'tag')) {
     let args = message.content.split(" ").slice(1);
@@ -701,13 +655,13 @@ message.channel.send({embed});
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("G.bans")) {
+    if (message.content.startsWith("!bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`Number of banned persons **${bans.size}** `))
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("G.avatar")) {
+    if (message.content.startsWith("!avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -850,7 +804,7 @@ function forEachObject(obj, func) {
 client.on("ready", () => {
     var guild;
     while (!guild)
-        guild = client.guilds.get("510140446605836308")// ايدي السيرفر
+        guild = client.guilds.get("520511154116624384")// ايدي السيرفر
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -862,7 +816,7 @@ client.on("ready", () => {
 
 
 client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.get("514454604193202176");// ايدي الروم
+    let channel = member.guild.channels.get("520511154116624386");// ايدي الروم
     if (!channel) {
         console.log("!channel fails");
         return;
@@ -873,7 +827,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('made it till here!');
     var guild;
     while (!guild)
-        guild = client.guilds.get("510140446605836308")// ايدي السيرفر
+        guild = client.guilds.get("520511154116624384")// ايدي السيرفر
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -2479,7 +2433,7 @@ const zead = [
    '*** انتظر الجزء الثاني عندما يوصل البوت 100 سيرفر , ساعدني في نشر البوت وادخل هذا السيرفر  ***'
 ];
  client.on('message', message => {
- if (message.content.startsWith('G.مريم')) {
+ if (message.content.startsWith('!مريم')) {
   var mariam= new Discord.RichEmbed()
   .setTitle("لعبة مريم ..")
   .setColor('RANDOM')
@@ -2585,7 +2539,6 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
            newRebel.author.send("ممنوع روآبط الدسكورد. \n إذآ كنت تريد النشر توآصل من الإدآرة.");
     }
 });
-
 const invites = {};
 const wait = require('util').promisify(setTimeout);
 client.on('ready', () => {
@@ -2627,17 +2580,14 @@ client.on("guildMemberAdd", member => {
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
-         moment.locale('ar-ly');
-         var h = member.user;
-        let heroo = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(h.avatarURL)
-        .setAuthor(h.username,h.avatarURL)
-        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)            
-         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
-         .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
-     welcomer.send({embed:heroo});          
- 
+member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const yumz = member.guild.channels.find("name", `${sChannel}`);
+     yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
+   //  yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  }); 
       var Canvas = require('canvas')
       var jimp = require('jimp')
       
@@ -2671,7 +2621,7 @@ client.on("guildMemberAdd", member => {
                               ctx.font = "bold 12px Arial";
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#f1f1f1";
-      ctx.fillText(`W`, 260, 125);
+      ctx.fillText(`-`, 260, 125);
       
                               //AVATARً
                               let Avatar = Canvas.Image;
@@ -3544,6 +3494,5 @@ client.on("message", (message) => {
     }
 })
 
-
-
+	
 client.login(process.env.BOT_TOKEN);
