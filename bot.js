@@ -337,7 +337,7 @@ client.on('message', function(msg) {
 });
  client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='!count')
+      if(message.content =='G.count')
 	 
       message.reply(`**${message.guild.memberCount}**`);
     });
@@ -483,7 +483,7 @@ client.on('message', message => {
 client.on('message', message => {
 if (message.content.startsWith(prefix + 'tag')) {
     let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('Please Type Any Sentens');  
+if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
 
     figlet(args.join(" "), (err, data) => {
               message.channel.send("```" + data + "```")
@@ -701,13 +701,13 @@ message.channel.send({embed});
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("!bans")) {
+    if (message.content.startsWith("G.bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`Number of banned persons **${bans.size}** `))
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("!avatar")) {
+    if (message.content.startsWith("G.avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -862,7 +862,7 @@ client.on("ready", () => {
 
 
 client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.get("520511154116624386");// ايدي الروم
+    let channel = member.guild.channels.get("514454604193202176");// ايدي الروم
     if (!channel) {
         console.log("!channel fails");
         return;
@@ -1881,7 +1881,7 @@ message.channel.send('**Game is Start now...!**').then(msg => {
  
  const embed = new Discord.RichEmbed()
  .setColor("0054dd")
-     .setAuthor(`? |You have »15« seconds to type the Fend`)
+     .setAuthor(`? |You have »15« seconds to type the word`)
           .setImage(`${item.type}`)
  .setFooter(`${message.author.tag}`, message.author.avatarURL)
  
@@ -2603,7 +2603,7 @@ client.on('message', message => {
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "Fend"
+    channel: "fend"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
@@ -2619,7 +2619,7 @@ if (err) console.error(err);
 });
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "Fend"
+    channel: "fend"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
