@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['Fend','!help','!play'];
+    var setGame = ['RadOgar.cf'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -2556,7 +2556,7 @@ client.on('message', message => {
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "fend"
+    channel: "chat"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
@@ -2573,7 +2573,7 @@ if (err) console.error(err);
 
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "fend"
+    channel: "chat"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
@@ -2624,7 +2624,7 @@ client.on("guildMemberAdd", member => {
                               ctx.font = "bold 12px Arial";
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#f1f1f1";
-      ctx.fillText(`-`, 260, 125);
+      ctx.fillText(`.`, 260, 125);
       
                               //AVATARً
                               let Avatar = Canvas.Image;
