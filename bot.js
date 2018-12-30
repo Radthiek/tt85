@@ -34,6 +34,20 @@ var ti={}
 ,attentions={};
 
 client.on('ready', function(){
+    var ms = 60000 ;
+    var setGame = ['System , TeamR'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/radthiek`);
+    }, ms);
     console.log(` ????????? |> Name: ${client.user.username}`);
  console.log(` ????????? |> Servers: ${client.guilds.size}`);
  console.log(` ???????????????????? |> Members: ${client.users.size}`);
@@ -54,99 +68,99 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 **
         ***__General orders__***
 **
-${prefix}allbots/لعرض جميع البوتات الي بالسيرفر?
-${prefix}server/يعرض لك معلومات عن السيرفر?
-${prefix}bot/يعرض لك كل معلومات البوت?
-${prefix}count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات?
-${prefix}invites/ يعرض لك  عدد انفايتاتك بالسيرفر ?
-${prefix}invinfo <invitelink here> / لمعلومات عن الدعوه?
+?${prefix}allbots/لعرض جميع البوتات الي بالسيرفر?
+?${prefix}server/يعرض لك معلومات عن السيرفر?
+?${prefix}bot/يعرض لك كل معلومات البوت?
+?${prefix}count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات?
+?${prefix}invites/ يعرض لك  عدد انفايتاتك بالسيرفر ?
+?${prefix}invinfo <invitelink here> / لمعلومات عن الدعوه?
 ? مثال : invinfo m82n8P
-${prefix}invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر ?
-${prefix}cal/اله حاسبة? 
-${prefix}trans <language> <any thing>/يترجم لك الي تبيه من اي لغة?
-${prefix}short/يختصر لك رابط كبير الى رابط صغير?
-${prefix}tag/يكتب لك الكلمة بشكل جميل وكبير?
-${prefix}google/للبحث في قوقل عن طريق الدسكورد?
-${prefix}perms/يعرض لك برمشناتك بالسيرفر?
-${prefix}z5rf/يزخرف لك كلمة او جملة?
-${prefix}rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها?
-${prefix}roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل?
-${prefix}emojilist/يعرض لك كل الايموجيات الي بالسيرفر?
-${prefix}say/يكرر الكلام الي تكتبو?
-${prefix}image/صورة السيرفر?
-${prefix}members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص?
-${prefix}id/معلومات عنك?
-${prefix}bans / عدد الاشخاص المبندة ?
-${prefix}avatar/صورتك او صورة الي تمنشنو?
-${prefix}embed/يكرر الي تقولو بشكل حلو? 
-${prefix}emoji <any things>/لتحويل اي كلمه تقولها الي ايموجي?
-${prefix}inv/لدعوة البوت الى سيرفرك?
-${prefix}support/سيرفر الدعم?
-${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت?
+?${prefix}invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر ?
+?${prefix}cal/اله حاسبة? 
+?${prefix}trans <language> <any thing>/يترجم لك الي تبيه من اي لغة?
+?${prefix}short/يختصر لك رابط كبير الى رابط صغير?
+?${prefix}tag/يكتب لك الكلمة بشكل جميل وكبير?
+?${prefix}google/للبحث في قوقل عن طريق الدسكورد?
+?${prefix}perms/يعرض لك برمشناتك بالسيرفر?
+?${prefix}z5rf/يزخرف لك كلمة او جملة?
+?${prefix}rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها?
+?${prefix}roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل?
+?${prefix}emojilist/يعرض لك كل الايموجيات الي بالسيرفر?
+?${prefix}say/يكرر الكلام الي تكتبو?
+?${prefix}image/صورة السيرفر?
+?${prefix}members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص?
+?${prefix}id/معلومات عنك?
+?${prefix}bans / عدد الاشخاص المبندة ?
+?${prefix}avatar/صورتك او صورة الي تمنشنو?
+?${prefix}embed/يكرر الي تقولو بشكل حلو? 
+?${prefix}emoji <any things>/لتحويل اي كلمه تقولها الي ايموجي?
+?${prefix}inv/لدعوة البوت الى سيرفرك?
+?${prefix}support/سيرفر الدعم?
+?${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت?
 **
   `
 ,`
         ***__Administrative Orders__***
 **
-${prefix}move @user /  لسحب الشخص الى روومك?  
-${prefix}bc / رسالة جماعية الى كل اعضاء السيرفر?
-${prefix}bk / رسالة جماعيه مع?
-${prefix}rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده?
-${prefix}role @user <rank> / لأعطاء رتبة لعضو معين?
-${prefix}roleremove @user <rank> / لازالة الرتبة من شخص معين?
-${prefix}give all <rank> / لأعطاء رتبة للجميع?
-${prefix}give humans <rank> / لأعطاء رتبة للاشخاص فقط?
-${prefix}give bots <rank> / لأعطاء رتبة لجميع البوتات?
-${prefix}hchannel / اخفاء الشات?
-${prefix}schannel / اضهار الشات المخفية?
-${prefix}clr <numbr> / مسح الشات بعدد?
-${prefix}clear / مسح الشات?
-${prefix}mute @user <time> / اعطاء العضو ميوت ?
-${prefix}unmute @user / لفك الميوت عن الشخص ?
-${prefix}kick @user <reason> / طرد الشخص من السيرفر?
-${prefix}ban @user <reason> / حضر الشخص من السيرفر?
-${prefix}mutechannel / تقفيل الشات?
-${prefix}unmutechannel / فتح الشات?
-${prefix}dc / مسح كل الرومات?
-${prefix}dr / <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات?
-${prefix}ct <name> / انشاء شات?
-${prefix}cv <name> / انشاء رووم فويس?
-${prefix}temp / لانشاء روم مؤقت?
-${prefix}delet <name> / مسح الشات او الرووم فويس?
-${prefix}make <number> / ينشا لك الوان مع كم الوان تبي?
-${prefix}color <number> / لختيار لون?
-${prefix}deletecolors <number> / لحذف الالوان?
+?${prefix}move @user /  لسحب الشخص الى روومك?  
+?${prefix}bc / رسالة جماعية الى كل اعضاء السيرفر?
+?${prefix}bk / رسالة جماعيه مع?
+?${prefix}rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده?
+?${prefix}role @user <rank> / لأعطاء رتبة لعضو معين?
+?${prefix}roleremove @user <rank> / لازالة الرتبة من شخص معين?
+?${prefix}give all <rank> / لأعطاء رتبة للجميع?
+?${prefix}give humans <rank> / لأعطاء رتبة للاشخاص فقط?
+?${prefix}give bots <rank> / لأعطاء رتبة لجميع البوتات?
+?${prefix}hchannel / اخفاء الشات?
+?${prefix}schannel / اضهار الشات المخفية?
+?${prefix}clr <numbr> / مسح الشات بعدد?
+?${prefix}clear / مسح الشات?
+?${prefix}mute @user <time> / اعطاء العضو ميوت ?
+?${prefix}unmute @user / لفك الميوت عن الشخص ?
+?${prefix}kick @user <reason> / طرد الشخص من السيرفر?
+?${prefix}ban @user <reason> / حضر الشخص من السيرفر?
+?${prefix}mutechannel / تقفيل الشات?
+?${prefix}unmutechannel / فتح الشات?
+?${prefix}dc / مسح كل الرومات?
+?${prefix}dr / <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات?
+?${prefix}ct <name> / انشاء شات?
+?${prefix}cv <name> / انشاء رووم فويس?
+?${prefix}temp / لانشاء روم مؤقت?
+?${prefix}delet <name> / مسح الشات او الرووم فويس?
+?${prefix}make <number> / ينشا لك الوان مع كم الوان تبي?
+?${prefix}color <number> / لختيار لون?
+?${prefix}deletecolors <number> / لحذف الالوان?
 **
    `,`
         ***__Music orders__***
 **
-${prefix}play / لتشغيل أغنية برآبط أو بأسم?
-${prefix}skip / لتجآوز الأغنية الحآلية?
-${prefix}pause / إيقآف الأغنية مؤقتا?
-${prefix}resume / لموآصلة الإغنية بعد إيقآفهآ مؤقتا?
-${prefix}vol / لتغيير درجة الصوت 100 - 0?
-${prefix}stop / لإخرآج البوت من الروم?
-${prefix}np / لمعرفة الأغنية المشغلة حآليا?
-${prefix}queue / لمعرفة قآئمة التشغيل?
+?${prefix}play / لتشغيل أغنية برآبط أو بأسم?
+?${prefix}skip / لتجآوز الأغنية الحآلية?
+?${prefix}pause / إيقآف الأغنية مؤقتا?
+?${prefix}resume / لموآصلة الإغنية بعد إيقآفهآ مؤقتا?
+?${prefix}vol / لتغيير درجة الصوت 100 - 0?
+?${prefix}stop / لإخرآج البوت من الروم?
+?${prefix}np / لمعرفة الأغنية المشغلة حآليا?
+?${prefix}queue / لمعرفة قآئمة التشغيل?
 **
         ***__Games orders__***
  **       
-${prefix}rps / حجر ورقة مقص?
-${prefix}speed / اسرع كتابة?
-${prefix}quas / اسئلة عامة?
-${prefix}نكت / نكت ?
-${prefix}لعبة فكك / فكك?
-${prefix}عواصم عشوائي/عواصم?
-${prefix}لعبة كت تويت / كت تويت?
-${prefix}roll <number> / قرعة?
-${prefix}لو خيروك بطريقة حلوة / لو خيروك
-${prefix}لعبة مريم / مريم?
-${prefix}فوائد ونصائح  / هل تعلم?
-${prefix}يعطيك عقابات قاسية / عقاب ?
-=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
-!welcome يتم الترحيب فى روم باسم?
-$.setwelcomer <text channel name> لاختيار روم للترحيب?
-${prefix}voiceonline / لتفعيل روم الفويس اونلاين?
+?${prefix}rps / حجر ورقة مقص?
+?${prefix}speed / اسرع كتابة?
+?${prefix}quas / اسئلة عامة?
+?${prefix}نكت / نكت ?
+?${prefix}لعبة فكك / فكك?
+?${prefix}عواصم عشوائي/عواصم?
+?${prefix}لعبة كت تويت / كت تويت?
+?${prefix}roll <number> / قرعة?
+?${prefix}لو خيروك بطريقة حلوة / لو خيروك?
+?${prefix}لعبة مريم / مريم?
+?${prefix}فوائد ونصائح  / هل تعلم?
+?${prefix}يعطيك عقابات قاسية / عقاب ?
+?=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.?
+?welcome يتم الترحيب فى روم باسم?
+?G.setwelcomer <text channel name> لاختيار روم للترحيب?
+?${prefix}voiceonline / لتفعيل روم الفويس اونلاين?
 **
    
 `]
@@ -159,12 +173,12 @@ ${prefix}voiceonline / لتفعيل روم الفويس اونلاين?
 
     message.author.sendEmbed(embed).then(msg => {
 
-        msg.react('◀').then( r => {
-            msg.react('▶')
+        msg.react('?').then( r => {
+            msg.react('?')
 
 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
-        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '?' && user.id === message.author.id;
 
 
         const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
@@ -281,10 +295,30 @@ client.on('message', function(msg) {
       msg.channel.send({embed:embed})
     }
 });
- 
+ client.on('message', message => {
+    if (message.content.startsWith(prefix + "bot")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``INFO Rèéd`` ')
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+			      .addField('``My Prefix``' , `[ ! ]` , true)
+			      .addField('``My Language``' , `[ Java Script ]` , true)
+			      .setFooter('By | Rèéd')
+    })
+}
+});
  client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='!count')
+      if(message.content =='G.count')
 	 
       message.reply(`**${message.guild.memberCount}**`);
     });
@@ -351,7 +385,7 @@ client.on('message', msg => {
 };
 });
 client.on('message', message => {
-    if (message.content.startsWith("!trans")) {
+    if (message.content.startsWith("G.trans")) {
       
     let toTrans = message.content.split(' ').slice(1);
     let language;
@@ -457,7 +491,7 @@ if (command == "z5rf") {
 });
 
 client.on('message', message => {
-    if (message.content === "!rooms") {
+    if (message.content === "G.rooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
@@ -621,13 +655,13 @@ message.channel.send({embed});
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("!bans")) {
+    if (message.content.startsWith("G.bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`Number of banned persons **${bans.size}** `))
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("!avatar")) {
+    if (message.content.startsWith("G.avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -770,7 +804,7 @@ function forEachObject(obj, func) {
 client.on("ready", () => {
     var guild;
     while (!guild)
-        guild = client.guilds.get("520511154116624384")// ايدي السيرفر
+        guild = client.guilds.get("510140446605836308")// ايدي السيرفر
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -782,7 +816,7 @@ client.on("ready", () => {
 
 
 client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.get("520511154116624386");// ايدي الروم
+    let channel = member.guild.channels.get("514454604193202176");// ايدي الروم
     if (!channel) {
         console.log("!channel fails");
         return;
@@ -793,7 +827,7 @@ client.on("guildMemberAdd", (member) => {
     console.log('made it till here!');
     var guild;
     while (!guild)
-        guild = client.guilds.get("520511154116624384")// ايدي السيرفر
+        guild = client.guilds.get("510140446605836308")// ايدي السيرفر
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
@@ -2399,7 +2433,7 @@ const zead = [
    '*** انتظر الجزء الثاني عندما يوصل البوت 100 سيرفر , ساعدني في نشر البوت وادخل هذا السيرفر  ***'
 ];
  client.on('message', message => {
- if (message.content.startsWith('!مريم')) {
+ if (message.content.startsWith('G.مريم')) {
   var mariam= new Discord.RichEmbed()
   .setTitle("لعبة مريم ..")
   .setColor('RANDOM')
@@ -2475,7 +2509,7 @@ var Za7f = [
 ];
 
 client.on('message', message => {
- if (message.content.startsWith("!عقاب")) {
+ if (message.content.startsWith("G.عقاب")) {
               if(!message.channel.guild) return message.reply('** This command only for servers**');
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
@@ -2522,7 +2556,7 @@ client.on('message', message => {
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "chat"
+    channel: "welcome"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
@@ -2536,10 +2570,9 @@ const channel = sWlc[message.guild.id].channel
 if (err) console.error(err);
 })
 });
-
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "chat"
+    channel: "welcome"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
@@ -2547,16 +2580,14 @@ client.on("guildMemberAdd", member => {
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
-         moment.locale('ar-ly');
-         var h = member.user;
-        let heroo = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(h.avatarURL)
-        .setAuthor(h.username,h.avatarURL)
-        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)            
-         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
-         .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
-     welcomer.send({embed:heroo});          
+member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const yumz = member.guild.channels.find("name", `${sChannel}`);
+     yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
+   //  yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  }); 
       var Canvas = require('canvas')
       var jimp = require('jimp')
       
@@ -2590,7 +2621,7 @@ client.on("guildMemberAdd", member => {
                               ctx.font = "bold 12px Arial";
                               ctx.fontSize = '20px';
                               ctx.fillStyle = "#f1f1f1";
-      ctx.fillText(`.`, 260, 125);
+      ctx.fillText(`Welcome To Server`, 260, 125);
       
                               //AVATARً
                               let Avatar = Canvas.Image;
@@ -3179,7 +3210,76 @@ client.on('message', message => {
         message.delete();
     }
 });
-
+client.on('message',async message => {
+  var room;
+  var title;
+  var duration;
+  var gMembers;
+  var filter = m => m.author.id === message.author.id;
+  if(message.content.startsWith(prefix + "giveaway")) {
+     //return message.channel.send(':heavy_multiplication_x:| **هذا الامر معطل حاليا.. ``حاول في وقت لاحق``**');
+    if(!message.guild.member(message.author).hasPermission('MANAGE_GUILD')) return message.channel.send(':heavy_multiplication_x:| **يجب أن يكون لديك خاصية التعديل على السيرفر**');
+    message.channel.send(`:eight_pointed_black_star:| **من فضلك اكتب اسم الروم**`).then(msgg => {
+      message.channel.awaitMessages(filter, {
+        max: 1,
+        time: 20000,
+        errors: ['time']
+      }).then(collected => {
+        let room = message.guild.channels.find('name', collected.first().content);
+        if(!room) return message.channel.send(':heavy_multiplication_x:| **لم اقدر على ايجاد الروم المطلوب**');
+        room = collected.first().content;
+        collected.first().delete();
+        msgg.edit(':eight_pointed_black_star:| **اكتب مدة القيف اواي بالدقائق , مثال : 60**').then(msg => {
+          message.channel.awaitMessages(filter, {
+            max: 1,
+            time: 20000,
+            errors: ['time']
+          }).then(collected => {
+            if(isNaN(collected.first().content)) return message.channel.send(':heavy_multiplication_x:| **يجب عليك ان تحدد وقت زمني صحيح.. ``يجب عليك اعادة كتابة الامر``**');
+            duration = collected.first().content * 60000;
+            collected.first().delete();
+            msgg.edit(':eight_pointed_black_star:| **واخيرا اكتب على ماذا تريد القيف اواي**').then(msg => {
+              message.channel.awaitMessages(filter, {
+                max: 1,
+                time: 20000,
+                errors: ['time']
+              }).then(collected => {
+                title = collected.first().content;
+                collected.first().delete();
+                try {
+                  let giveEmbed = new Discord.RichEmbed()
+                  .setAuthor(message.guild.name, message.guild.iconURL)
+                  .setTitle(title)
+                  .setDescription(`المدة : ${duration / 60000} دقائق`)
+                  .setFooter(message.author.username, message.author.avatarURL);
+                  message.guild.channels.find('name', room).send(giveEmbed).then(m => {
+                     let re = m.react('??');
+                     setTimeout(() => {
+                       let users = m.reactions.get("??").users;
+                       let list = users.array().filter(u => u.id !== m.author.id);
+                       let gFilter = list[Math.floor(Math.random() * list.length) + 0];
+                         if(users.size === 1) gFilter = '**لم يتم التحديد**';
+                       let endEmbed = new Discord.RichEmbed()
+                       .setAuthor(message.author.username, message.author.avatarURL)
+                       .setTitle(title)
+                       .addField('انتهى القيف اواي !',`الفائز هو : ${gFilter}`)
+                       .setFooter(message.guild.name, message.guild.iconURL);
+                       m.edit(endEmbed);
+                     },duration);
+                   });
+                  msgg.edit(`:heavy_check_mark:| **تم اعداد القيف اواي**`);
+                } catch(e) {
+                  msgg.edit(`:heavy_multiplication_x:| **لم اقدر على اعداد القيف اواي بسبب نقص الخصائص**`);
+                  console.log(e);
+                }
+              });
+            });
+          });
+        });
+      });
+    });
+  }
+});
 var KinG66S = {};
 client.on('guildMemberRemove', member => {
 KinG66S[member.id] = {roles: member.roles.array()};
@@ -3395,4 +3495,4 @@ client.on("message", (message) => {
 })
 
 	
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.token);
